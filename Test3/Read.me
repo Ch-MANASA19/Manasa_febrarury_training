@@ -1,0 +1,60 @@
+#  Conclusion (Mandatory)
+This project performed comprehensive data preprocessing on the Flipkart sales dataset to prepare it for machine learning applications. The following final decisions were made based on observations and analysis:
+## 🔹 Missing Value Handling
+
+- **Median Imputation** worked best for numerical features.
+- Median was chosen over mean because it is more robust to skewness and less affected by extreme values.
+- **Mode Imputation** was used for categorical variables as it preserves the most frequent category without introducing bias.
+
+✔ Final Choice:  
+Median (numerical) and Mode (categorical)
+
+---
+
+## 🔹 Categorical Encoding Techniques
+
+Different encoding techniques were suitable for different types of features:
+
+- **One-Hot Encoding** is ideal for nominal variables (e.g., Region, Payment_Method) because it avoids ordinal bias.
+- **Label Encoding** is simple but may introduce unintended ranking.
+- **Ordinal Encoding** is appropriate only when categories have meaningful order.
+- **Frequency Encoding** is useful when category frequency carries information.
+- **Target Encoding** captures the relationship between categorical features and the target variable (Sales_Amount), making it powerful for predictive modeling.
+
+✔ Final Observation:  
+For nominal features, **One-Hot Encoding** is safest.  
+For predictive modeling, **Target Encoding** provides better feature-target relationship representation.
+
+---
+
+## 🔹 Feature Scaling
+
+Four scaling techniques were implemented and compared:
+
+- **Min-Max Scaling** works well for neural networks.
+- **Max Absolute Scaling** preserves sparsity.
+- **Vector Normalization** scales feature vectors to unit norm.
+- **Z-score Standardization** centers data with mean = 0 and standard deviation = 1.
+
+✔ Final Choice:  
+**Z-score Standardization** is the most effective overall because many machine learning algorithms (Logistic Regression, SVM, KNN) assume normally distributed data.
+
+---
+
+## 🔹 Outlier Treatment & Skewness
+
+- IQR method was applied to detect outliers.
+- No significant extreme outliers were observed.
+- Skewness values were minimal and did not require transformation.
+
+✔ Observation:  
+Since skewness was low and no extreme outliers were detected, no aggressive transformation was necessary.
+
+---
+
+Final Justification
+
+Median imputation, appropriate encoding selection based on feature type, and Z-score standardization together create a balanced and machine-learning-ready dataset.  
+The preprocessing choices were made to maintain data integrity, avoid bias, and improve model performance.
+
+The dataset is now fully prepared for reliable and efficient machine learning model development.
